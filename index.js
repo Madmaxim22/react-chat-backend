@@ -63,6 +63,10 @@ function messagesRateLimiter(req, res, next) {
     next();
 }
 
+app.get('/', (req, res) => {
+    res.json({ status: 'ok' });
+});
+
 // Эндпоинт, который отдаёт текущий userId из сессии
 app.get('/messages/me', (req, res) => {
     if (!req.session?.userId) {
